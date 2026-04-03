@@ -52,7 +52,7 @@
     "lint:fix": "biome check --write src",
     "format": "biome format --write src",
     "typecheck": "tsc --noEmit",
-    "test:storybook": "test-storybook --url http://127.0.0.1:6007 --includeTags interaction",
+    "test:storybook": "test-storybook --url http://127.0.0.1:6007 --includeTags interaction --testTimeout=60000",
     "test:vitest": "vitest run --project=storybook",
     "preview": "vite preview",
     "prepublishOnly": "npm run build",

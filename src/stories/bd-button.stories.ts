@@ -3,7 +3,30 @@ import { html, nothing } from 'lit'
 import type { TemplateResult } from 'lit/html.js'
 import { expect, fn, userEvent, waitFor } from 'storybook/test'
 
-import '../components/bd-button.js'
+import { BdButton } from '../components/bd-button.js'
+
+/**
+ * Test-runner’s `play` can run before the custom element upgrades / Lit paints the shadow tree.
+ * `await (host as LitElement).updateComplete` is a no-op if `updateComplete` is still undefined.
+ */
+async function getBdButtonInnerButton(canvasElement: HTMLElement): Promise<HTMLButtonElement> {
+  await customElements.whenDefined('bd-button')
+  const doc = canvasElement.ownerDocument ?? document
+  const raw = canvasElement.querySelector('bd-button') ?? doc.querySelector('bd-button')
+  await expect(raw).not.toBeNull()
+  const host = raw as HTMLElement
+  customElements.upgrade(host)
+  await expect(host).toBeInstanceOf(BdButton)
+  await (host as BdButton).updateComplete
+  return await waitFor(
+    () => {
+      const inner = (host as BdButton).shadowRoot?.querySelector('button')
+      if (!inner) throw new Error('inner button not ready')
+      return inner
+    },
+    { timeout: 5000, interval: 25 },
+  )
+}
 
 type BdButtonIconOption = 'none' | 'plus' | 'chevron-down' | 'chevron-right'
 
@@ -393,11 +416,7 @@ export const EmitsBdClick: Story = {
   play: async ({ canvasElement }) => {
     const host = canvasElement.querySelector('bd-button')
     await expect(host).not.toBeNull()
-    const innerButton = await waitFor(() => {
-      const btn = host?.shadowRoot?.querySelector('button')
-      if (!btn) throw new Error('inner button not in shadow root yet')
-      return btn as HTMLButtonElement
-    })
+    const innerButton = await getBdButtonInnerButton(canvasElement)
 
     const onBdClick = fn()
     host?.addEventListener('bd-click', onBdClick)
@@ -413,11 +432,7 @@ export const DisabledDoesNotEmit: Story = {
   play: async ({ canvasElement }) => {
     const host = canvasElement.querySelector('bd-button')
     await expect(host).not.toBeNull()
-    const innerButton = await waitFor(() => {
-      const btn = host?.shadowRoot?.querySelector('button')
-      if (!btn) throw new Error('inner button not in shadow root yet')
-      return btn as HTMLButtonElement
-    })
+    const innerButton = await getBdButtonInnerButton(canvasElement)
 
     const onBdClick = fn()
     host?.addEventListener('bd-click', onBdClick)
