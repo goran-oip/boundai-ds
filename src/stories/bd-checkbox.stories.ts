@@ -13,7 +13,8 @@ type BdCheckboxArgs = {
 }
 
 const meta = {
-  title: 'Components/bd-checkbox',
+  title: 'Base Components/bd-checkbox',
+  id: 'components-bd-checkbox',
   tags: ['autodocs'],
   render: (args: BdCheckboxArgs) =>
     html`<div style="padding:var(--spacing-4xl);background:var(--color-surface-canvas)">

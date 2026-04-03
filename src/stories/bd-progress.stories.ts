@@ -14,7 +14,8 @@ const barLabels: BdProgressBarLabel[] = [
 ]
 
 const meta = {
-  title: 'Components/bd-progress',
+  title: 'Base Components/bd-progress',
+  id: 'components-bd-progress',
   tags: ['autodocs'],
   parameters: {
     docs: {

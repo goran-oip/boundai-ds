@@ -10,7 +10,8 @@ type BdFeaturedFolderIconArgs = {
 }
 
 const meta = {
-  title: 'Components/bd-featured-folder-icon',
+  title: 'Base Components/bd-featured-folder-icon',
+  id: 'components-bd-featured-folder-icon',
   tags: ['autodocs'],
   render: (args: BdFeaturedFolderIconArgs) =>
     html`<bd-featured-folder-icon

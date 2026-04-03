@@ -25,7 +25,8 @@ const helpPlacements: BdHelpIconPlacement[] = [
 ]
 
 const meta = {
-  title: 'Components/bd-tooltip',
+  title: 'Base Components/bd-tooltip',
+  id: 'components-bd-tooltip',
   tags: ['autodocs'],
   parameters: {
     docs: {

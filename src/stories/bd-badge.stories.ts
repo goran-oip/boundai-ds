@@ -35,7 +35,8 @@ type BdBadgeArgs = {
 }
 
 const meta = {
-  title: 'Components/bd-badge',
+  title: 'Base Components/bd-badge',
+  id: 'components-bd-badge',
   tags: ['autodocs'],
   render: (args: BdBadgeArgs) => {
     if (args.icon === 'leading') {

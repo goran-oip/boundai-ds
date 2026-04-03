@@ -21,7 +21,8 @@ type Args = {
 }
 
 const meta = {
-  title: 'Components/bd-badge-group',
+  title: 'Base Components/bd-badge-group',
+  id: 'components-bd-badge-group',
   tags: ['autodocs'],
   render: (args: Args) => html`
     <bd-badge-group

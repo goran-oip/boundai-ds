@@ -108,7 +108,7 @@ export class BdAvatar extends LitElement {
     }
 
     if (this.status === 'verified') {
-      return html`<span class="badge verified" part="badge" aria-label="Verified">${verifiedSvg}</span>`
+      return html`<span class="badge verified" part="badge" role="img" aria-label="Verified">${verifiedSvg}</span>`
     }
 
     if (this.status === 'company') {

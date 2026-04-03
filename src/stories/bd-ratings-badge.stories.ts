@@ -11,7 +11,8 @@ type BdRatingsBadgeArgs = {
 }
 
 const meta = {
-  title: 'Components/bd-ratings-badge',
+  title: 'Base Components/bd-ratings-badge',
+  id: 'components-bd-ratings-badge',
   tags: ['autodocs'],
   render: (args: BdRatingsBadgeArgs) =>
     html`<bd-ratings-badge

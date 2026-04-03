@@ -10,7 +10,8 @@ type BdCloseButtonArgs = {
 }
 
 const meta = {
-  title: 'Components/bd-close-button',
+  title: 'Base Components/bd-close-button',
+  id: 'components-bd-close-button',
   tags: ['autodocs'],
   render: (args: BdCloseButtonArgs) =>
     html`<bd-close-button

@@ -59,7 +59,8 @@ type BdUtilityButtonArgs = {
 }
 
 const meta = {
-  title: 'Components/bd-utility-button',
+  title: 'Base Components/bd-utility-button',
+  id: 'components-bd-utility-button',
   tags: ['autodocs'],
   render: (args: BdUtilityButtonArgs) =>
     html`<bd-utility-button

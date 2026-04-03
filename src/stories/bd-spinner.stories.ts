@@ -9,7 +9,8 @@ type BdSpinnerArgs = {
 }
 
 const meta = {
-  title: 'Components/bd-spinner',
+  title: 'Base Components/bd-spinner',
+  id: 'components-bd-spinner',
   tags: ['autodocs'],
   render: (args: BdSpinnerArgs) => html`<bd-spinner size=${args.size}></bd-spinner>`,
   args: {

@@ -10,7 +10,8 @@ type BdFeaturedIconOutlineArgs = {
 }
 
 const meta = {
-  title: 'Components/bd-featured-icon-outline',
+  title: 'Base Components/bd-featured-icon-outline',
+  id: 'components-bd-featured-icon-outline',
   tags: ['autodocs'],
   render: (args: BdFeaturedIconOutlineArgs) =>
     html`<bd-featured-icon-outline

@@ -11,7 +11,8 @@ type BdStarIconArgs = {
 }
 
 const meta = {
-  title: 'Components/bd-star-icon',
+  title: 'Base Components/bd-star-icon',
+  id: 'components-bd-star-icon',
   tags: ['autodocs'],
   render: (args: BdStarIconArgs) =>
     html`<bd-star-icon
@@ -42,3 +43,38 @@ export default meta
 type Story = StoryObj<BdStarIconArgs>
 
 export const Playground: Story = {}
+
+/** Figma `1232:9` — eleven fill levels 0% … 100% in 10% steps (yellow + gray). */
+export const AllFillStates: StoryObj = {
+  name: 'All fill states (0–100%, step 10)',
+  render: () => html`
+    <div
+      style="display:flex;flex-direction:column;gap:1.25rem;padding:1rem;font-family:var(--font-family-body);"
+    >
+      <div style="display:flex;gap:0.5rem;align-items:flex-end;flex-wrap:wrap;">
+        ${[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100].map(
+          (f) => html`
+            <div style="display:flex;flex-direction:column;align-items:center;gap:0.25rem;">
+              <bd-star-icon .fill=${f} color="yellow"></bd-star-icon>
+              <span style="font-size:var(--font-size-text-xs);color:var(--color-gray-light-mode-600);"
+                >${f}%</span
+              >
+            </div>
+          `,
+        )}
+      </div>
+      <div style="display:flex;gap:0.5rem;align-items:flex-end;flex-wrap:wrap;">
+        ${[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100].map(
+          (f) => html`
+            <div style="display:flex;flex-direction:column;align-items:center;gap:0.25rem;">
+              <bd-star-icon .fill=${f} color="gray"></bd-star-icon>
+              <span style="font-size:var(--font-size-text-xs);color:var(--color-gray-light-mode-600);"
+                >${f}%</span
+              >
+            </div>
+          `,
+        )}
+      </div>
+    </div>
+  `,
+}

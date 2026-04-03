@@ -13,7 +13,8 @@ type BdToggleArgs = {
 }
 
 const meta = {
-  title: 'Components/bd-toggle',
+  title: 'Base Components/bd-toggle',
+  id: 'components-bd-toggle',
   tags: ['autodocs'],
   render: (args: BdToggleArgs) =>
     html`<div style="padding:var(--spacing-4xl);background:var(--color-surface-canvas)">

@@ -3,6 +3,8 @@ import { html } from 'lit'
 
 import '../components/bd-docs-intro.js'
 
+const logoMark = `${import.meta.env.BASE_URL}boundai-logo.svg`
+
 const chevronRight = html`<svg
   width="20"
   height="20"
@@ -21,19 +23,13 @@ const chevronRight = html`<svg
 </svg>`
 
 const meta = {
-  title: 'Components/bd-docs-intro',
+  title: 'Base Components/bd-docs-intro',
+  id: 'components-bd-docs-intro',
   tags: ['autodocs'],
   render: () =>
     html`<bd-docs-intro>
       <div slot="logo" style="display:flex;align-items:center;color:var(--color-text-default)">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-          <rect width="32" height="32" rx="8" fill="var(--color-blue-dark-600)" />
-          <path
-            d="M10 16c0-3.314 2.686-6 6-6s6 2.686 6 6-2.686 6-6 6-6-2.686-6-6z"
-            fill="white"
-            fill-opacity="0.9"
-          />
-        </svg>
+        <img src=${logoMark} width="32" height="32" alt="" />
       </div>
       <div slot="breadcrumb" style="display:flex;align-items:center;gap:var(--spacing-sm)">
         <span>Base components</span>
@@ -66,19 +62,12 @@ export const SelectPage: Story = {
   render: () =>
     html`<bd-docs-intro>
       <div slot="logo" style="display:flex;align-items:center;color:var(--color-text-default)">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-          <rect width="32" height="32" rx="8" fill="var(--color-blue-dark-600)" />
-          <path
-            d="M10 16c0-3.314 2.686-6 6-6s6 2.686 6 6-2.686 6-6 6-6-2.686-6-6z"
-            fill="white"
-            fill-opacity="0.9"
-          />
-        </svg>
+        <img src=${logoMark} width="32" height="32" alt="" />
       </div>
       <div slot="breadcrumb" style="display:flex;align-items:center;gap:var(--spacing-sm)">
         <span>Base components</span>
         ${chevronRight}
-        <span>Dropdowns</span>
+        <span>Select</span>
       </div>
       <span slot="title">Select</span>
       <span

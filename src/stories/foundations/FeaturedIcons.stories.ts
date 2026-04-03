@@ -154,12 +154,20 @@ export const FileTypeIconRow: Story = {
       <h2
         style="font-family:var(--font-family-display);font-size:var(--font-size-display-xs);font-weight:600;margin:0 0 1rem;color:var(--color-text-heading);"
       >
-        Simple / Image
+        File type (sample)
       </h2>
-      <div style="display:flex;gap:2rem;align-items:center;">
-        <bd-file-type-icon appearance="default" label="Image file default"></bd-file-type-icon>
-        <bd-file-type-icon appearance="gray" label="Image file gray"></bd-file-type-icon>
-        <bd-file-type-icon appearance="solid" label="Image file solid"></bd-file-type-icon>
+      <p style="margin:0 0 1rem;font-size:var(--font-size-text-sm);color:var(--color-text-secondary-700);max-width:42rem;">
+        Use <code style="font-size:0.9em">file-type</code> for the full catalog (see
+        <strong>Components → bd-file-type-icon</strong>).
+      </p>
+      <div style="display:flex;gap:2rem;align-items:center;flex-wrap:wrap;">
+        <bd-file-type-icon
+          appearance="default"
+          file-type="default-image"
+          label="Default image outline"
+        ></bd-file-type-icon>
+        <bd-file-type-icon appearance="gray" file-type="image-png" label="PNG gray"></bd-file-type-icon>
+        <bd-file-type-icon appearance="solid" file-type="document-pdf" label="PDF solid"></bd-file-type-icon>
       </div>
     </div>
   `,

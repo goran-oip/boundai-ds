@@ -22,7 +22,8 @@ const layersIcon = html`<svg
 </svg>`
 
 const meta = {
-  title: 'Components/bd-radio-group',
+  title: 'Base Components/bd-radio-group',
+  id: 'components-bd-radio-group',
   tags: ['autodocs'],
   parameters: {
     docs: {

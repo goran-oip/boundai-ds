@@ -24,7 +24,8 @@ type BdSelectArgs = {
 }
 
 const meta = {
-  title: 'Components/bd-select',
+  title: 'Base Components/bd-select',
+  id: 'components-bd-select',
   tags: ['autodocs'],
   render: (args: BdSelectArgs) =>
     html`<div style="padding:var(--spacing-4xl);max-width:360px;background:var(--color-surface-canvas)">

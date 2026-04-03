@@ -1,12 +1,15 @@
 import { css, html, LitElement, nothing } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
+import { unsafeHTML } from 'lit/directives/unsafe-html.js'
 
 import './bd-star-icon.js'
+import wreathLeftSvg from './icons/ratings-wreath-left.svg?raw'
+import wreathRightSvg from './icons/ratings-wreath-right.svg?raw'
 
 /**
  * Figma **Ratings badge** (`7460:158976`) — laurel frame, five stars, title + supporting text.
  *
- * Default laurels are simplified SVG; override with **`wreath-left`** / **`wreath-right`** slots.
+ * Default laurels match Figma exports; override with **`wreath-left`** / **`wreath-right`** slots.
  *
  * @slot wreath-left - Left laurel / decoration.
  * @slot wreath-right - Right laurel / decoration.
@@ -59,29 +62,14 @@ export class BdRatingsBadge extends LitElement {
     return html`
       ${Array.from(
         { length: 5 },
-        () => html`<bd-star-icon fill="100" color="yellow"></bd-star-icon>`,
+        () => html`<bd-star-icon fill="100" color="yellow" .size=${16}></bd-star-icon>`,
       )}
     `
   }
 
   private _wreath(side: 'left' | 'right') {
-    return html`
-      <svg
-        class="wreath ${side === 'right' ? 'is-mirror' : ''}"
-        width="36"
-        height="80"
-        viewBox="0 0 36 80"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        <g fill="var(--color-gray-light-mode-900)">
-          <path d="M34 4C14 8 4 38 0 78h5C10 44 18 20 34 12V4Z" />
-          <ellipse cx="13" cy="24" rx="5" ry="11" transform="rotate(-22 13 24)" />
-          <ellipse cx="11" cy="48" rx="5" ry="9" transform="rotate(-12 11 48)" />
-        </g>
-      </svg>
-    `
+    const raw = side === 'left' ? wreathLeftSvg : wreathRightSvg
+    return html`<div class="wreath" aria-hidden="true">${unsafeHTML(raw)}</div>`
   }
 
   static styles = css`
@@ -113,7 +101,7 @@ export class BdRatingsBadge extends LitElement {
     .stars {
       display: flex;
       gap: var(--spacing-xxs);
-      align-items: flex-start;
+      align-items: start;
     }
 
     .text {
@@ -144,10 +132,11 @@ export class BdRatingsBadge extends LitElement {
 
     .wreath {
       display: block;
+      line-height: 0;
     }
 
-    .wreath.is-mirror {
-      transform: scaleX(-1);
+    .wreath svg {
+      display: block;
     }
   `
 }

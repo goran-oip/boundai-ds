@@ -117,17 +117,33 @@ export const StarFillRow: Story = {
       <h2
         style="font-family:var(--font-family-display);font-size:var(--font-size-display-xs);font-weight:600;margin:0 0 1rem;color:var(--color-text-heading);"
       >
-        Yellow / gray · 0–100%
+        Yellow / gray · 0%–100% (10% steps, Figma 1232:9)
       </h2>
-      <div style="display:flex;flex-direction:column;gap:1rem;">
-        <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
-          ${[0, 30, 50, 70, 100].map(
-            (f) => html`<bd-star-icon .fill=${f} color="yellow"></bd-star-icon>`,
+      <div style="display:flex;flex-direction:column;gap:1.25rem;">
+        <div style="display:flex;gap:0.5rem;align-items:flex-end;flex-wrap:wrap;">
+          ${[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100].map(
+            (f) => html`
+              <div style="display:flex;flex-direction:column;align-items:center;gap:0.25rem;">
+                <bd-star-icon .fill=${f} color="yellow"></bd-star-icon>
+                <span
+                  style="font-size:var(--font-size-text-xs);color:var(--color-gray-light-mode-600);font-variant-numeric:tabular-nums;"
+                  >${f}%</span
+                >
+              </div>
+            `,
           )}
         </div>
-        <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
-          ${[0, 30, 50, 70, 100].map(
-            (f) => html`<bd-star-icon .fill=${f} color="gray"></bd-star-icon>`,
+        <div style="display:flex;gap:0.5rem;align-items:flex-end;flex-wrap:wrap;">
+          ${[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100].map(
+            (f) => html`
+              <div style="display:flex;flex-direction:column;align-items:center;gap:0.25rem;">
+                <bd-star-icon .fill=${f} color="gray"></bd-star-icon>
+                <span
+                  style="font-size:var(--font-size-text-xs);color:var(--color-gray-light-mode-600);font-variant-numeric:tabular-nums;"
+                  >${f}%</span
+                >
+              </div>
+            `,
           )}
         </div>
       </div>

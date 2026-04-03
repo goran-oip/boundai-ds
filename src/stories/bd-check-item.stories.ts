@@ -18,7 +18,8 @@ type BdCheckItemArgs = {
 }
 
 const meta = {
-  title: 'Components/bd-check-item',
+  title: 'Base Components/bd-check-item',
+  id: 'components-bd-check-item',
   tags: ['autodocs'],
   render: (args: BdCheckItemArgs) =>
     html`<bd-check-item

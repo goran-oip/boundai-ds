@@ -1,31 +1,35 @@
 import { css, html, LitElement, nothing } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
-import { STAR_PATH_D } from './icons/star-shape.js'
+import { STAR_PATH_D, starClipWidthForFill } from './icons/star-shape.js'
 
 let starClipUid = 0
 
 /**
- * Figma **Star icon** (`1232:9`) — 20×20, fill 0–100% (step 10 in Figma), Yellow or Gray fill.
+ * Figma **Star icon** (`1232:9`) — default 20×20; ratings badge uses 16×16 (`7460:133330`).
+ * Fill 0–100% in 10% steps from Figma (`1232:9`); clip width matches `starClipWidthForFill` (not linear % of width).
  *
- * @csspart root - 20×20 SVG box.
+ * @csspart root - Square SVG box (`size` × `size`).
  */
 export type BdStarIconColor = 'yellow' | 'gray'
 
 @customElement('bd-star-icon')
 export class BdStarIcon extends LitElement {
-  /** Fill amount 0–100 (Figma uses 10% increments). */
+  /** Fill amount 0–100 (Figma: 0%, 10% … 100%; widths are stepped, not `fill%` of 20px). */
   @property({ type: Number }) fill = 0
 
   @property({ reflect: true }) color: BdStarIconColor = 'yellow'
+
+  /** Rendered pixel size (Figma frame is 20×20; ratings badge stars are 16×16). */
+  @property({ type: Number }) size = 20
 
   @property({ attribute: 'label' }) label = ''
 
   private _clipId = `bd-star-clip-${++starClipUid}`
 
   render() {
-    const f = Math.min(100, Math.max(0, this.fill))
-    const w = (20 * f) / 100
+    const w = starClipWidthForFill(this.fill)
+    const sz = Math.max(1, this.size)
     const accent =
       this.color === 'yellow' ? 'var(--color-warning-400)' : 'var(--color-gray-light-mode-900)'
     const track = 'var(--color-gray-light-mode-100)'
@@ -34,13 +38,14 @@ export class BdStarIcon extends LitElement {
       <div
         part="root"
         class="root"
+        style="width:${sz}px;height:${sz}px"
         role=${this.label ? 'img' : nothing}
         aria-label=${this.label || nothing}
         aria-hidden=${this.label ? nothing : 'true'}
       >
         <svg
-          width="20"
-          height="20"
+          width=${sz}
+          height=${sz}
           viewBox="0 0 20 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -65,8 +70,7 @@ export class BdStarIcon extends LitElement {
     }
 
     .root {
-      width: 20px;
-      height: 20px;
+      flex-shrink: 0;
       line-height: 0;
     }
   `

@@ -19,7 +19,8 @@ type BdTextareaArgs = {
 }
 
 const meta = {
-  title: 'Components/bd-textarea',
+  title: 'Base Components/bd-textarea',
+  id: 'components-bd-textarea',
   tags: ['autodocs'],
   render: (args: BdTextareaArgs) =>
     html`<div style="padding:var(--spacing-4xl);max-width:360px;background:var(--color-surface-canvas)">

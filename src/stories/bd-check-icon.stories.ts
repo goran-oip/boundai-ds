@@ -16,7 +16,8 @@ type BdCheckIconArgs = {
 }
 
 const meta = {
-  title: 'Components/bd-check-icon',
+  title: 'Base Components/bd-check-icon',
+  id: 'components-bd-check-icon',
   tags: ['autodocs'],
   render: (args: BdCheckIconArgs) =>
     html`<bd-check-icon

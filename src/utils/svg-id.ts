@@ -1,6 +1,6 @@
 /**
  * Rewrites `id="…"` and `url(#…)` / `href="#…"` in an SVG fragment so multiple
- * instances on one page do not collide (circle-flags / brand marks reuse ids).
+ * instances on one page do not collide (embedded icons often reuse ids).
  */
 export function rewriteSvgIds(fragment: string, prefix: string): string {
   const seen = new Set<string>()

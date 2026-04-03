@@ -33,7 +33,8 @@ type BdEmojiArgs = {
 }
 
 const meta = {
-  title: 'Components/bd-emoji',
+  title: 'Base Components/bd-emoji',
+  id: 'components-bd-emoji',
   tags: ['autodocs'],
   render: (args: BdEmojiArgs) =>
     html`<bd-emoji name=${args.name} src=${args.src || ''} label=${args.label || ''}></bd-emoji>`,

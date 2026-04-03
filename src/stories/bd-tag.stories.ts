@@ -14,7 +14,8 @@ type Args = {
 }
 
 const meta = {
-  title: 'Components/bd-tag',
+  title: 'Base Components/bd-tag',
+  id: 'components-bd-tag',
   tags: ['autodocs'],
   render: (args: Args) => {
     if (args.leading === 'media') {

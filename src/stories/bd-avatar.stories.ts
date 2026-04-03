@@ -5,13 +5,25 @@ import '../components/bd-avatar.js'
 import '../components/bd-avatar-profile-photo.js'
 import '../components/bd-docs-intro.js'
 
-const demoImg = 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=128&h=128&fit=crop'
-const demoImg2 = 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=128&h=128&fit=crop'
-const demoCompany =
-  'https://images.unsplash.com/photo-1611944215020-7290c0b4b0b8?w=64&h=64&fit=crop'
+/** Inline SVG — loads in Storybook / CI without external hosts. */
+function svgDataUrl(svg: string): string {
+  return `data:image/svg+xml,${encodeURIComponent(svg)}`
+}
+
+/** Two distinct placeholder “photos” for stacks / groups. */
+const demoImg = svgDataUrl(
+  `<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><defs><linearGradient id="a" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e0e7ff"/><stop offset="1" stop-color="#c7d2fe"/></linearGradient></defs><rect width="128" height="128" fill="url(#a)"/><circle cx="64" cy="46" r="26" fill="#eef2ff"/><ellipse cx="64" cy="118" rx="42" ry="34" fill="#eef2ff"/></svg>`,
+)
+const demoImg2 = svgDataUrl(
+  `<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fce7f3"/><stop offset="1" stop-color="#fbcfe8"/></linearGradient></defs><rect width="128" height="128" fill="url(#b)"/><circle cx="64" cy="46" r="26" fill="#fdf2f8"/><ellipse cx="64" cy="118" rx="42" ry="34" fill="#fdf2f8"/></svg>`,
+)
+
+/** Product mark — `public/boundai-logo.svg` (Figma app icon · node `1083:50505`). */
+const demoCompanyLogo = `${import.meta.env.BASE_URL}boundai-logo.svg`
 
 const meta = {
-  title: 'Components/bd-avatar',
+  title: 'Base Components/bd-avatar',
+  id: 'components-bd-avatar',
   tags: ['autodocs'],
   parameters: {
     docs: {
@@ -33,14 +45,8 @@ export const DocsIntro: Story = {
     <bd-docs-intro>
       <span slot="title">Avatars</span>
       <span slot="description">
-        All images are sourced from
-        <a href="https://unsplash.com/" target="_blank" rel="noreferrer">Unsplash</a>
-        and
-        <a href="https://pexels.com/" target="_blank" rel="noreferrer">Pexels</a>
-        and can be used freely for commercial and non-commercial purposes. You can read more about Unsplash’s license
-        <a href="https://unsplash.com/license" target="_blank" rel="noreferrer">here</a>
-        and Pexel’s
-        <a href="https://www.pexels.com/license/" target="_blank" rel="noreferrer">here</a>.
+        Story demos use inline SVG placeholders (no network). The <strong>company</strong> badge uses
+        <code>public/boundai-logo.svg</code>. Online / verified badges are drawn by the component, not raster images.
       </span>
     </bd-docs-intro>
   `,
@@ -82,7 +88,7 @@ export const StatusRow: Story = {
         src=${demoImg}
         alt=""
         status="company"
-        company-src=${demoCompany}
+        company-src=${demoCompanyLogo}
       ></bd-avatar>
     </div>
   `,
@@ -159,7 +165,7 @@ export const LabelGroupStory: Story = {
         src=${demoImg}
         alt=""
         status="company"
-        company-src=${demoCompany}
+        company-src=${demoCompanyLogo}
       ></bd-avatar-label-group>
     </div>
   `,

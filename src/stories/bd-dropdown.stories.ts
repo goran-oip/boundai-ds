@@ -57,7 +57,8 @@ type BdDropdownArgs = {
 }
 
 const meta = {
-  title: 'Components/bd-dropdown',
+  title: 'Base Components/bd-dropdown',
+  id: 'components-bd-dropdown',
   tags: ['autodocs'],
   render: (args: BdDropdownArgs) =>
     html`<div style="min-height:420px;padding:var(--spacing-4xl);background:var(--color-surface-canvas)">

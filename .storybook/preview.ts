@@ -22,12 +22,12 @@ const preview: Preview = {
             'Spacing, radius & grids',
             'Effect styles',
             'Featured icons',
+            'Lucide icons',
             'Miscellaneous icons',
-            'Social icons',
-            'Country icons',
             'Payment method icons',
           ],
-          'Components',
+          'Base Components',
+          'Application Components',
         ],
       },
     },
@@ -36,8 +36,8 @@ const preview: Preview = {
       // 'todo' - show a11y violations in the test UI only
       // 'error' - fail CI on a11y violations
       // 'off' - skip a11y checks entirely
-      test: 'todo'
-    }
+      test: 'todo',
+    },
   },
 }
 

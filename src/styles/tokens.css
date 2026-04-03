@@ -176,6 +176,8 @@
 :root {
   --color-bg-primary: #ffffff;
   --color-bg-primary-hover: #fafafa;
+  /* Muted surface (Figma secondary / doc blocks); same as primary-hover in light. */
+  --color-bg-secondary: var(--color-bg-primary-hover);
   --color-bg-error-primary: var(--color-error-50);
   --color-bg-error-solid: var(--color-error-600);
   --color-bg-error-solid-hover: var(--color-error-700);
@@ -389,6 +391,7 @@
 
     --color-bg-primary: var(--color-gray-dark-mode-950);
     --color-bg-primary-hover: var(--color-gray-dark-mode-800);
+    --color-bg-secondary: var(--color-bg-primary-hover);
     --color-border-primary: var(--color-gray-dark-mode-700);
     --color-border-secondary: var(--color-gray-dark-mode-800);
 

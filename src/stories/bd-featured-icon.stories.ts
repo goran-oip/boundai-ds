@@ -11,7 +11,8 @@ type BdFeaturedIconArgs = {
 }
 
 const meta = {
-  title: 'Components/bd-featured-icon',
+  title: 'Base Components/bd-featured-icon',
+  id: 'components-bd-featured-icon',
   tags: ['autodocs'],
   render: (args: BdFeaturedIconArgs) =>
     html`<bd-featured-icon

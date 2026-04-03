@@ -17,7 +17,8 @@ type BdPaymentMethodIconArgs = {
  * Figma Design System v1.1 — Payment method icon (`1142:83268`).
  */
 const meta = {
-  title: 'Components/bd-payment-method-icon',
+  title: 'Base Components/bd-payment-method-icon',
+  id: 'components-bd-payment-method-icon',
   tags: ['autodocs'],
   render: (args: BdPaymentMethodIconArgs) =>
     html`<bd-payment-method-icon

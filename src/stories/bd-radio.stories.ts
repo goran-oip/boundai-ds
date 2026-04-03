@@ -14,7 +14,8 @@ type BdRadioArgs = {
 }
 
 const meta = {
-  title: 'Components/bd-radio',
+  title: 'Base Components/bd-radio',
+  id: 'components-bd-radio',
   tags: ['autodocs'],
   render: (args: BdRadioArgs) =>
     html`<div style="padding:var(--spacing-4xl);background:var(--color-surface-canvas)">

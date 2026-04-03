@@ -14,10 +14,14 @@ const SOLID: Record<BdStatusDotSize, number> = {
   lg: 10,
 }
 
-const HALO: Record<BdStatusDotSize, number> = {
-  sm: 8,
-  md: 10,
-  lg: 12,
+/** Figma outline variants: single circle, fill + stroke halo (`1046:12310`). */
+const OUTLINE: Record<
+  BdStatusDotSize,
+  { box: number; cx: number; cy: number; r: number; stroke: number }
+> = {
+  sm: { box: 12, cx: 6, cy: 6, r: 4.5, stroke: 3 },
+  md: { box: 16, cx: 8, cy: 8, r: 6, stroke: 4 },
+  lg: { box: 20, cx: 10, cy: 10, r: 7.5, stroke: 5 },
 }
 
 @customElement('bd-status-dot')
@@ -29,14 +33,45 @@ export class BdStatusDot extends LitElement {
   @property({ attribute: 'label' }) label = ''
 
   render() {
-    const outer = this.outline ? HALO[this.size] : SOLID[this.size]
-    const inner = SOLID[this.size]
+    if (this.outline) {
+      const o = OUTLINE[this.size]
+      return html`
+        <div
+          part="root"
+          class="root root--outline"
+          style="width:${o.box}px;height:${o.box}px;"
+          role=${this.label ? 'img' : nothing}
+          aria-label=${this.label || nothing}
+          aria-hidden=${this.label ? nothing : 'true'}
+        >
+          <svg
+            class="outline-svg"
+            width=${o.box}
+            height=${o.box}
+            viewBox="0 0 ${o.box} ${o.box}"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <circle
+              cx=${o.cx}
+              cy=${o.cy}
+              r=${o.r}
+              fill="var(--color-success-500)"
+              stroke="var(--color-success-100)"
+              stroke-width=${o.stroke}
+            />
+          </svg>
+        </div>
+      `
+    }
 
+    const inner = SOLID[this.size]
     return html`
       <div
         part="root"
-        class="root ${this.outline ? 'has-halo' : ''}"
-        style="width:${outer}px;height:${outer}px;--dot:${inner}px;"
+        class="root"
+        style="width:${inner}px;height:${inner}px;--dot:${inner}px;"
         role=${this.label ? 'img' : nothing}
         aria-label=${this.label || nothing}
         aria-hidden=${this.label ? nothing : 'true'}
@@ -61,8 +96,15 @@ export class BdStatusDot extends LitElement {
       border-radius: var(--radius-full);
     }
 
-    .root.has-halo {
-      background: color-mix(in srgb, var(--color-success-600) 18%, transparent);
+    .root--outline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .outline-svg {
+      display: block;
+      overflow: visible;
     }
 
     .dot {

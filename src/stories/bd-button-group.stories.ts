@@ -20,7 +20,8 @@ type BdButtonGroupArgs = {
 }
 
 const meta = {
-  title: 'Components/bd-button-group',
+  title: 'Base Components/bd-button-group',
+  id: 'components-bd-button-group',
   tags: ['autodocs'],
   render: (args: BdButtonGroupArgs) => {
     if (args.layout === 'text') {

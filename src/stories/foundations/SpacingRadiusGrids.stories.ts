@@ -150,7 +150,7 @@ function tableSection(
       <p style="margin:0 0 1rem;font-size:var(--font-size-text-sm);line-height:var(--line-height-text-sm);color:var(--color-text-muted);max-width:72ch;">
         ${intro}
       </p>
-      <div style="overflow-x:auto;border:1px solid var(--color-border-secondary);border-radius:var(--radius-md);">
+      <div tabindex="0" aria-label="${title} table, scrollable" style="overflow-x:auto;border:1px solid var(--color-border-secondary);border-radius:var(--radius-md);">
         <table style="width:100%;border-collapse:collapse;font-size:var(--font-size-text-sm);">
           <thead>
             <tr style="background:var(--color-gray-light-mode-50);text-align:left;">
@@ -248,7 +248,7 @@ export const Radius: Story = {
           `,
         )}
       </div>
-      <div style="overflow-x:auto;border:1px solid var(--color-border-secondary);border-radius:var(--radius-md);">
+      <div tabindex="0" aria-label="Border radius tokens table, scrollable" style="overflow-x:auto;border:1px solid var(--color-border-secondary);border-radius:var(--radius-md);">
         <table style="width:100%;border-collapse:collapse;font-size:var(--font-size-text-sm);">
           <thead>
             <tr style="background:var(--color-gray-light-mode-50);text-align:left;">

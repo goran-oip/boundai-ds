@@ -11,7 +11,8 @@ type BdStatusDotArgs = {
 }
 
 const meta = {
-  title: 'Components/bd-status-dot',
+  title: 'Base Components/bd-status-dot',
+  id: 'components-bd-status-dot',
   tags: ['autodocs'],
   render: (args: BdStatusDotArgs) =>
     html`<bd-status-dot

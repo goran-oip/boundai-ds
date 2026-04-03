@@ -79,7 +79,7 @@ export class BdAvatarProfilePhoto extends LitElement {
         </div>
         ${
           this.verified
-            ? html`<div class="vmark" aria-label="Verified">${verifiedLg}</div>`
+            ? html`<div class="vmark" role="img" aria-label="Verified">${verifiedLg}</div>`
             : nothing
         }
       </div>

@@ -2,7 +2,7 @@ import { css, html, LitElement, nothing } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
 /**
- * Figma **Button group** · node `1046:10171` — toolbar / segmented control / split-style actions.
+ * Figma **Button group** · `1046:10171`, segmented control spec **`3275:372484`** — toolbar / split actions / date ranges.
  *
  * Set `layout` on the group; each **`bd-button-group-item`** inherits padding and inner gap via CSS variables.
  * Place **`bd-button-group-item`** elements as **direct children** (no wrapper) so first/last rounding and dividers apply.
@@ -187,8 +187,9 @@ export class BdButtonGroupItem extends LitElement {
       background: var(--color-bg-primary-hover);
     }
 
+    /* Selected: Figma 3275:372484 — text-secondary_hover on bg-active, not text-primary-900 */
     :host([selected]) button:not(:disabled) {
-      color: var(--color-text-primary-900);
+      color: var(--color-text-secondary-hover);
       background: var(--color-bg-primary-hover);
     }
 

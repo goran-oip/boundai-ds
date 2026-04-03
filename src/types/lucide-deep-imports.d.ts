@@ -1,3 +1,13 @@
+declare module 'lucide/dist/esm/icons/bell.js' {
+  import type { IconNode } from 'lucide'
+  const icon: IconNode
+  export default icon
+}
+declare module 'lucide/dist/esm/icons/zap.js' {
+  import type { IconNode } from 'lucide'
+  const icon: IconNode
+  export default icon
+}
 declare module 'lucide/dist/esm/icons/check.js' {
   import type { IconNode } from 'lucide'
   const icon: IconNode

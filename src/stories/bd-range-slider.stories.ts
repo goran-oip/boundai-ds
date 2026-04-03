@@ -5,7 +5,8 @@ import '../components/bd-range-slider.js'
 import type { BdRangeSliderLabel } from '../components/bd-range-slider.js'
 
 const meta = {
-  title: 'Components/bd-range-slider',
+  title: 'Base Components/bd-range-slider',
+  id: 'components-bd-range-slider',
   tags: ['autodocs'],
   parameters: {
     docs: {
