@@ -9,8 +9,8 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: '22'
           cache: 'npm'
@@ -20,14 +20,24 @@ jobs:
       - run: npm run typecheck
       - run: npm run build
       - run: npm run docs
-      - run: |
-          npm run preview-docs > /tmp/storybook-static.log 2>&1 &
+      - name: Storybook interaction tests
+        run: |
+          set -euo pipefail
+          npx --yes serve storybook-static -l 6007 > /tmp/storybook-static.log 2>&1 &
           PREVIEW_PID=$!
-          trap "kill $PREVIEW_PID" EXIT
-          for i in {1..30}; do
+          trap 'kill "$PREVIEW_PID" 2>/dev/null || true' EXIT
+          READY=false
+          for _ in $(seq 1 60); do
             if curl -sf http://127.0.0.1:6007 >/dev/null; then
+              READY=true
               break
             fi
             sleep 1
           done
+          if [ "$READY" != true ]; then
+            echo "::error::Storybook static server did not respond on http://127.0.0.1:6007"
+            echo "--- preview-docs log ---"
+            cat /tmp/storybook-static.log || true
+            exit 1
+          fi
           npm run test:storybook

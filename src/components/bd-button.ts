@@ -62,7 +62,7 @@ export class BdButton extends LitElement {
       >
         <slot name="prefix"></slot>
         <slot name="leading-icon"></slot>
-        <slot></slot>
+        <span class="label"><slot></slot></span>
         <slot name="suffix"></slot>
         <slot name="trailing-icon"></slot>
       </button>
@@ -269,6 +269,14 @@ export class BdButton extends LitElement {
     button:disabled {
       cursor: not-allowed;
       opacity: 0.5;
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 var(--spacing-xxs);
+      flex-shrink: 0;
     }
 
     ::slotted([slot='prefix']),

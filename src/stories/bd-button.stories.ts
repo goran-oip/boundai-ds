@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/web-components-vite'
 import { html, nothing } from 'lit'
 import type { TemplateResult } from 'lit/html.js'
-import { expect, fn, userEvent, within } from 'storybook/test'
+import { expect, fn, userEvent, waitFor } from 'storybook/test'
 
 import '../components/bd-button.js'
 
@@ -215,6 +215,24 @@ export const FullWidth: Story = {
   args: { fullWidth: true, label: 'Full width button' },
 }
 
+/** Leading icon only (`slot="leading-icon"`). */
+export const WithLeadingIcon: Story = {
+  args: {
+    leadingIcon: 'plus',
+    trailingIcon: 'none',
+    label: 'Button CTA',
+  },
+}
+
+/** Trailing icon only (`slot="trailing-icon"`). */
+export const WithTrailingIcon: Story = {
+  args: {
+    leadingIcon: 'none',
+    trailingIcon: 'chevron-down',
+    label: 'Button CTA',
+  },
+}
+
 /** Leading + trailing icons (`leading-icon` / `trailing-icon` slots). */
 export const WithLeadingAndTrailingIcons: Story = {
   args: {
@@ -222,6 +240,107 @@ export const WithLeadingAndTrailingIcons: Story = {
     trailingIcon: 'chevron-right',
     label: 'Button CTA',
   },
+}
+
+/** Icon-only button — set `label` for accessibility. */
+export const IconOnly: Story = {
+  args: {
+    leadingIcon: 'plus',
+    trailingIcon: 'none',
+    label: '',
+  },
+  render: (args: BdButtonArgs) =>
+    html`<bd-button
+      intent=${args.intent}
+      variant=${args.variant}
+      size=${args.size}
+      label="Add item"
+      ?disabled=${args.disabled}
+    >
+      <span slot="leading-icon">${iconPlus}</span>
+    </bd-button>`,
+}
+
+/** All icon configurations across sizes. */
+export const IconConfigurationsRow: Story = {
+  render: () => html`
+    <div style="display:flex;gap:var(--spacing-xl);flex-wrap:wrap;align-items:center;">
+      <bd-button size="sm">No icon</bd-button>
+      <bd-button size="sm">
+        <span slot="leading-icon">${iconPlus}</span>
+        Leading
+      </bd-button>
+      <bd-button size="sm">
+        Trailing
+        <span slot="trailing-icon">${iconChevronDown}</span>
+      </bd-button>
+      <bd-button size="sm">
+        <span slot="leading-icon">${iconPlus}</span>
+        Both
+        <span slot="trailing-icon">${iconChevronRight}</span>
+      </bd-button>
+      <bd-button size="sm" label="Add item">
+        <span slot="leading-icon">${iconPlus}</span>
+      </bd-button>
+    </div>
+    <div style="display:flex;gap:var(--spacing-xl);flex-wrap:wrap;align-items:center;margin-top:var(--spacing-lg);">
+      <bd-button size="md">No icon</bd-button>
+      <bd-button size="md">
+        <span slot="leading-icon">${iconPlus}</span>
+        Leading
+      </bd-button>
+      <bd-button size="md">
+        Trailing
+        <span slot="trailing-icon">${iconChevronDown}</span>
+      </bd-button>
+      <bd-button size="md">
+        <span slot="leading-icon">${iconPlus}</span>
+        Both
+        <span slot="trailing-icon">${iconChevronRight}</span>
+      </bd-button>
+      <bd-button size="md" label="Add item">
+        <span slot="leading-icon">${iconPlus}</span>
+      </bd-button>
+    </div>
+    <div style="display:flex;gap:var(--spacing-xl);flex-wrap:wrap;align-items:center;margin-top:var(--spacing-lg);">
+      <bd-button size="lg">No icon</bd-button>
+      <bd-button size="lg">
+        <span slot="leading-icon">${iconPlus}</span>
+        Leading
+      </bd-button>
+      <bd-button size="lg">
+        Trailing
+        <span slot="trailing-icon">${iconChevronDown}</span>
+      </bd-button>
+      <bd-button size="lg">
+        <span slot="leading-icon">${iconPlus}</span>
+        Both
+        <span slot="trailing-icon">${iconChevronRight}</span>
+      </bd-button>
+      <bd-button size="lg" label="Add item">
+        <span slot="leading-icon">${iconPlus}</span>
+      </bd-button>
+    </div>
+    <div style="display:flex;gap:var(--spacing-xl);flex-wrap:wrap;align-items:center;margin-top:var(--spacing-lg);">
+      <bd-button size="xl">No icon</bd-button>
+      <bd-button size="xl">
+        <span slot="leading-icon">${iconPlus}</span>
+        Leading
+      </bd-button>
+      <bd-button size="xl">
+        Trailing
+        <span slot="trailing-icon">${iconChevronDown}</span>
+      </bd-button>
+      <bd-button size="xl">
+        <span slot="leading-icon">${iconPlus}</span>
+        Both
+        <span slot="trailing-icon">${iconChevronRight}</span>
+      </bd-button>
+      <bd-button size="xl" label="Add item">
+        <span slot="leading-icon">${iconPlus}</span>
+      </bd-button>
+    </div>
+  `,
 }
 
 /** Brand Primary / Secondary / Tertiary. */
@@ -272,17 +391,18 @@ export const EmitsBdClick: Story = {
   tags: ['interaction'],
   render: () => html`<bd-button>Emit event</bd-button>`,
   play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement)
-    const label = canvas.getByText('Emit event')
-    const host = label.closest('bd-button')
+    const host = canvasElement.querySelector('bd-button')
     await expect(host).not.toBeNull()
-    const innerButton = host?.shadowRoot?.querySelector('button')
-    await expect(innerButton).not.toBeNull()
+    const innerButton = await waitFor(() => {
+      const btn = host?.shadowRoot?.querySelector('button')
+      if (!btn) throw new Error('inner button not in shadow root yet')
+      return btn as HTMLButtonElement
+    })
 
     const onBdClick = fn()
     host?.addEventListener('bd-click', onBdClick)
 
-    await userEvent.click(innerButton as HTMLButtonElement)
+    await userEvent.click(innerButton)
     await expect(onBdClick.mock.calls.length).toBeGreaterThanOrEqual(0)
   },
 }
@@ -291,19 +411,20 @@ export const DisabledDoesNotEmit: Story = {
   tags: ['interaction'],
   render: () => html`<bd-button ?disabled=${true}>Disabled event</bd-button>`,
   play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement)
-    const label = canvas.getByText('Disabled event')
-    const host = label.closest('bd-button')
+    const host = canvasElement.querySelector('bd-button')
     await expect(host).not.toBeNull()
-    const innerButton = host?.shadowRoot?.querySelector('button')
-    await expect(innerButton).not.toBeNull()
+    const innerButton = await waitFor(() => {
+      const btn = host?.shadowRoot?.querySelector('button')
+      if (!btn) throw new Error('inner button not in shadow root yet')
+      return btn as HTMLButtonElement
+    })
 
     const onBdClick = fn()
     host?.addEventListener('bd-click', onBdClick)
 
     await expect(host?.hasAttribute('disabled')).toBe(true)
-    await expect((innerButton as HTMLButtonElement).disabled).toBe(true)
+    await expect(innerButton.disabled).toBe(true)
     // Disabled native buttons block pointer events; userEvent cannot click them (Vitest/browser).
-    await expect(onBdClick).not.toHaveBeenCalled()
+    await expect(onBdClick.mock.calls.length).toBe(0)
   },
 }
