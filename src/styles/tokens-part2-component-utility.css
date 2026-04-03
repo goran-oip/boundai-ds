@@ -1,0 +1,351 @@
+/**
+ * Part 2 — Component / utility colors, alpha, spacing & radius
+ * Figma: Design-System-v1.1 · node 6487:347428
+ *
+ * Naming: Figma `Component colors/...` → --color-* kebab-case
+ *   e.g. Component colors/Utility/Gray/utility-gray-50 → --color-utility-gray-50
+ */
+
+/* -------------------------------------------------------------------------- */
+/* Component colors/Alpha/*                                                  */
+/* -------------------------------------------------------------------------- */
+:root {
+  --color-alpha-white-10: #ffffff1a;
+  --color-alpha-white-20: #ffffff33;
+  --color-alpha-white-30: #ffffff4d;
+  --color-alpha-white-40: #ffffff66;
+  --color-alpha-white-50: #ffffff80;
+  --color-alpha-white-60: #ffffff99;
+  --color-alpha-white-70: #ffffffb2;
+  --color-alpha-white-80: #ffffffcc;
+  --color-alpha-white-90: #ffffffe5;
+  --color-alpha-white-100: #ffffff;
+
+  --color-alpha-black-10: #0000001a;
+  --color-alpha-black-20: #00000033;
+  --color-alpha-black-30: #0000004d;
+  --color-alpha-black-40: #00000066;
+  --color-alpha-black-50: #00000080;
+  --color-alpha-black-60: #00000099;
+  --color-alpha-black-70: #000000b2;
+  --color-alpha-black-80: #000000cc;
+  --color-alpha-black-90: #000000e5;
+  --color-alpha-black-100: #000000;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Component colors/Utility/Gray/* (aliases → Gray (light mode) primitives)  */
+/* -------------------------------------------------------------------------- */
+:root {
+  --color-utility-gray-50: var(--color-gray-light-mode-50);
+  --color-utility-gray-100: var(--color-gray-light-mode-100);
+  --color-utility-gray-200: var(--color-gray-light-mode-200);
+  --color-utility-gray-300: var(--color-gray-light-mode-300);
+  --color-utility-gray-400: var(--color-gray-light-mode-400);
+  --color-utility-gray-500: var(--color-gray-light-mode-500);
+  --color-utility-gray-600: var(--color-gray-light-mode-600);
+  --color-utility-gray-700: var(--color-gray-light-mode-700);
+  --color-utility-gray-800: var(--color-gray-light-mode-800);
+  --color-utility-gray-900: var(--color-gray-light-mode-900);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Component colors/Utility/Brand/* — aliased to Blue dark (product blue)    */
+/* -------------------------------------------------------------------------- */
+:root {
+  --color-utility-brand-50: var(--color-blue-dark-50);
+  --color-utility-brand-50-alt: var(--color-blue-dark-50);
+  --color-utility-brand-100: var(--color-blue-dark-100);
+  --color-utility-brand-100-alt: var(--color-blue-dark-100);
+  --color-utility-brand-200: var(--color-blue-dark-200);
+  --color-utility-brand-200-alt: var(--color-blue-dark-200);
+  --color-utility-brand-300: var(--color-blue-dark-300);
+  --color-utility-brand-300-alt: var(--color-blue-dark-300);
+  --color-utility-brand-400: var(--color-blue-dark-400);
+  --color-utility-brand-400-alt: var(--color-blue-dark-400);
+  --color-utility-brand-500: var(--color-blue-dark-500);
+  --color-utility-brand-500-alt: var(--color-blue-dark-500);
+  --color-utility-brand-600: var(--color-blue-dark-600);
+  --color-utility-brand-600-alt: var(--color-blue-dark-600);
+  --color-utility-brand-700: var(--color-blue-dark-700);
+  --color-utility-brand-700-alt: var(--color-blue-dark-700);
+  --color-utility-brand-800: var(--color-blue-dark-800);
+  --color-utility-brand-800-alt: var(--color-blue-dark-800);
+  --color-utility-brand-900: var(--color-blue-dark-900);
+  --color-utility-brand-900-alt: var(--color-blue-dark-900);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Component colors/Utility/Error|Warning|Success/* (aliases → primitives)   */
+/* -------------------------------------------------------------------------- */
+:root {
+  --color-utility-error-50: var(--color-error-50);
+  --color-utility-error-100: var(--color-error-100);
+  --color-utility-error-200: var(--color-error-200);
+  --color-utility-error-300: var(--color-error-300);
+  --color-utility-error-400: var(--color-error-400);
+  --color-utility-error-500: var(--color-error-500);
+  --color-utility-error-600: var(--color-error-600);
+  --color-utility-error-700: var(--color-error-700);
+
+  --color-utility-warning-50: var(--color-warning-50);
+  --color-utility-warning-100: var(--color-warning-100);
+  --color-utility-warning-200: var(--color-warning-200);
+  --color-utility-warning-300: var(--color-warning-300);
+  --color-utility-warning-400: var(--color-warning-400);
+  --color-utility-warning-500: var(--color-warning-500);
+  --color-utility-warning-600: var(--color-warning-600);
+  --color-utility-warning-700: var(--color-warning-700);
+
+  --color-utility-success-50: var(--color-success-50);
+  --color-utility-success-100: var(--color-success-100);
+  --color-utility-success-200: var(--color-success-200);
+  --color-utility-success-300: var(--color-success-300);
+  --color-utility-success-400: var(--color-success-400);
+  --color-utility-success-500: var(--color-success-500);
+  --color-utility-success-600: var(--color-success-600);
+  --color-utility-success-700: var(--color-success-700);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Component colors/Utility/Gray blue/*                                       */
+/* -------------------------------------------------------------------------- */
+:root {
+  --color-utility-gray-blue-50: #f8f9fc;
+  --color-utility-gray-blue-100: #eaecf5;
+  --color-utility-gray-blue-200: #d5d9eb;
+  --color-utility-gray-blue-300: #b3b8db;
+  --color-utility-gray-blue-400: #717bbc;
+  --color-utility-gray-blue-500: #4e5ba6;
+  --color-utility-gray-blue-600: #3e4784;
+  --color-utility-gray-blue-700: #363f72;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Component colors/Utility/Blue light/*                                      */
+/* -------------------------------------------------------------------------- */
+:root {
+  --color-utility-blue-light-50: #f0f9ff;
+  --color-utility-blue-light-100: #e0f2fe;
+  --color-utility-blue-light-200: #b9e6fe;
+  --color-utility-blue-light-300: #7cd4fd;
+  --color-utility-blue-light-400: #36bffa;
+  --color-utility-blue-light-500: #0ba5ec;
+  --color-utility-blue-light-600: #0086c9;
+  --color-utility-blue-light-700: #026aa2;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Component colors/Utility/Blue/*                                           */
+/* -------------------------------------------------------------------------- */
+:root {
+  --color-utility-blue-50: #eff8ff;
+  --color-utility-blue-100: #d1e9ff;
+  --color-utility-blue-200: #b2ddff;
+  --color-utility-blue-300: #84caff;
+  --color-utility-blue-400: #53b1fd;
+  --color-utility-blue-500: #2e90fa;
+  --color-utility-blue-600: #1570ef;
+  --color-utility-blue-700: #175cd3;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Component colors/Utility/Blue dark/* (aligns with product “Blue dark” DS) */
+/* -------------------------------------------------------------------------- */
+:root {
+  --color-utility-blue-dark-50: var(--color-blue-dark-50);
+  --color-utility-blue-dark-100: var(--color-blue-dark-100);
+  --color-utility-blue-dark-200: var(--color-blue-dark-200);
+  --color-utility-blue-dark-300: var(--color-blue-dark-300);
+  --color-utility-blue-dark-400: var(--color-blue-dark-400);
+  --color-utility-blue-dark-500: var(--color-blue-dark-500);
+  --color-utility-blue-dark-600: var(--color-blue-dark-600);
+  --color-utility-blue-dark-700: var(--color-blue-dark-700);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Component colors/Utility/Indigo|Purple|Fuchsia|Pink/*                      */
+/* -------------------------------------------------------------------------- */
+:root {
+  --color-utility-indigo-50: #eef4ff;
+  --color-utility-indigo-100: #e0eaff;
+  --color-utility-indigo-200: #c7d7fe;
+  --color-utility-indigo-300: #a4bcfd;
+  --color-utility-indigo-400: #8098f9;
+  --color-utility-indigo-500: #6172f3;
+  --color-utility-indigo-600: #444ce7;
+  --color-utility-indigo-700: #3538cd;
+
+  --color-utility-purple-50: #f4f3ff;
+  --color-utility-purple-100: #ebe9fe;
+  --color-utility-purple-200: #d9d6fe;
+  --color-utility-purple-300: #bdb4fe;
+  --color-utility-purple-400: #9b8afb;
+  --color-utility-purple-500: #7a5af8;
+  --color-utility-purple-600: #6938ef;
+  --color-utility-purple-700: #5925dc;
+
+  --color-utility-fuchsia-50: #fdf4ff;
+  --color-utility-fuchsia-100: #fbe8ff;
+  --color-utility-fuchsia-200: #f6d0fe;
+  --color-utility-fuchsia-300: #eeaafd;
+  --color-utility-fuchsia-400: #e478fa;
+  --color-utility-fuchsia-500: #d444f1;
+  --color-utility-fuchsia-600: #ba24d5;
+  --color-utility-fuchsia-700: #9f1ab1;
+
+  --color-utility-pink-50: #fdf2fa;
+  --color-utility-pink-100: #fce7f6;
+  --color-utility-pink-200: #fcceee;
+  --color-utility-pink-300: #faa7e0;
+  --color-utility-pink-400: #f670c7;
+  --color-utility-pink-500: #ee46bc;
+  --color-utility-pink-600: #dd2590;
+  --color-utility-pink-700: #c11574;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Component colors/Utility/Orange dark|Orange/*                              */
+/* -------------------------------------------------------------------------- */
+:root {
+  --color-utility-orange-dark-50: #fff4ed;
+  --color-utility-orange-dark-100: #ffe6d5;
+  --color-utility-orange-dark-200: #ffd6ae;
+  --color-utility-orange-dark-300: #ff9c66;
+  --color-utility-orange-dark-400: #ff692e;
+  --color-utility-orange-dark-500: #ff4405;
+  --color-utility-orange-dark-600: #e62e05;
+  --color-utility-orange-dark-700: #bc1b06;
+
+  --color-utility-orange-50: #fef6ee;
+  --color-utility-orange-100: #fdead7;
+  --color-utility-orange-200: #f9dbaf;
+  --color-utility-orange-300: #f7b27a;
+  --color-utility-orange-400: #f38744;
+  --color-utility-orange-500: #ef6820;
+  --color-utility-orange-600: #e04f16;
+  --color-utility-orange-700: #b93815;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Spacing & layout (same Figma node)                                         */
+/* -------------------------------------------------------------------------- */
+:root {
+  /* Figma in-between spacing steps used by component internals */
+  --spacing-1px: 1px;
+  --spacing-3px: 3px;
+  --spacing-5px: 5px;
+  --spacing-7px: 7px;
+  --spacing-9px: 9px;
+  --spacing-10px: 10px;
+  --spacing-11px: 11px;
+  --spacing-13px: 13px;
+  --spacing-14px: 14px;
+
+  --spacing-xxs: 2px;
+  --spacing-xs: 4px;
+  --spacing-sm: 6px;
+  --spacing-md: 8px;
+  --spacing-lg: 12px;
+  --spacing-xl: 16px;
+  --spacing-2xl: 20px;
+  --spacing-3xl: 24px;
+  --spacing-none: 0;
+  /* Figma semantic “spacing-xxx” (5245:372881) — 2px; alias of scale step 0.5 */
+  --spacing-xxx: 0.125rem;
+  --spacing-4xl: 32px;
+  --spacing-5xl: 2.5rem; /* 40px */
+  --spacing-6xl: 48px;
+  --spacing-7xl: 64px;
+  --spacing-8xl: 80px;
+  --spacing-9xl: 6rem; /* 96px */
+  --spacing-10xl: 128px;
+  --spacing-11xl: 10rem; /* 160px */
+
+  /*
+   * Numeric spacing primitives — Figma “Spacing primitives” (6300:76782).
+   * 1 unit = 0.25rem (4px at 16px root). Names match Figma “Name” column.
+   */
+  --spacing-unit-0: 0;
+  --spacing-unit-0-5: 0.125rem;
+  --spacing-unit-1: 0.25rem;
+  --spacing-unit-1-5: 0.375rem;
+  --spacing-unit-2: 0.5rem;
+  --spacing-unit-3: 0.75rem;
+  --spacing-unit-4: 1rem;
+  --spacing-unit-5: 1.25rem;
+  --spacing-unit-6: 1.5rem;
+  --spacing-unit-8: 2rem;
+  --spacing-unit-10: 2.5rem;
+  --spacing-unit-12: 3rem;
+  --spacing-unit-16: 4rem;
+  --spacing-unit-20: 5rem;
+  --spacing-unit-24: 6rem;
+  --spacing-unit-32: 8rem;
+  --spacing-unit-40: 10rem;
+  --spacing-unit-48: 12rem;
+  --spacing-unit-56: 14rem;
+  --spacing-unit-64: 16rem;
+  --spacing-unit-80: 20rem;
+  --spacing-unit-96: 24rem;
+  --spacing-unit-120: 30rem;
+  --spacing-unit-140: 35rem;
+  --spacing-unit-160: 40rem;
+  --spacing-unit-180: 45rem;
+  --spacing-unit-192: 48rem;
+  --spacing-unit-256: 64rem;
+  --spacing-unit-320: 80rem;
+  --spacing-unit-360: 90rem;
+  --spacing-unit-400: 100rem;
+  --spacing-unit-480: 120rem;
+
+  /* Border radius — Figma “Radius” (5253:372274) */
+  --radius-none: 0;
+  --radius-xxs: 2px;
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 20px;
+  --radius-4xl: 24px;
+  --radius-full: 9999px;
+
+  /* Width scale — Figma spacing doc (5245:372881) */
+  --width-xs: 20rem;
+  --width-sm: 24rem;
+  --width-md: 30rem;
+  --width-ml: 35rem;
+  --width-lg: 40rem;
+  --width-xl: 48rem;
+  --width-2xl: 64rem;
+  --width-3xl: 80rem;
+  --width-4xl: 90rem;
+  --width-5xl: 100rem;
+  --width-6xl: 120rem;
+
+  --container-padding-mobile: 1rem;
+  --container-padding-desktop: 2rem;
+  --container-max-width-desktop: 80rem;
+
+  --paragraph-max-width: 45rem;
+  --layout-width-2xl: 1024px;
+  --layout-paragraph-max-width: var(--paragraph-max-width);
+
+  /* Grid layouts — Figma “Grid layouts” (5245:373008) */
+  --layout-grid-desktop-width: 1280px;
+  --layout-grid-desktop-columns: 12;
+  --layout-grid-desktop-gutter: 20px;
+  --layout-grid-desktop-margin: 32px;
+
+  --layout-grid-tablet-width: 768px;
+  --layout-grid-tablet-columns: 6;
+  --layout-grid-tablet-gutter: 20px;
+  --layout-grid-tablet-margin: 32px;
+
+  --layout-grid-mobile-width: 375px;
+  --layout-grid-mobile-columns: 4;
+  --layout-grid-mobile-gutter: 16px;
+  --layout-grid-mobile-margin: 16px;
+}

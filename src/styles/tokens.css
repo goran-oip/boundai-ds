@@ -1,0 +1,437 @@
+/**
+ * Design tokens — :root (custom properties inherit into Lit Shadow DOM).
+ *
+ * Color names mirror Figma variable paths from Design-System-v1.1
+ * (file m4ZRc8532uouLR1Fizg8BH). Convention:
+ *   Figma: Colors / {Group} / {name}
+ *   CSS:   --color-{group-kebab}-{name-kebab}
+ *   e.g.  Colors/Gray (light mode)/600 → --color-gray-light-mode-600
+ *         Colors/Text/text-primary (900) → --color-text-primary-900
+ *
+ * Typography: Font family/*, Font size/*, Line height/*, Font weight/*
+ * (node 1023:36826 — Design-System-v1.1)
+ *
+ * Colors/Text semantic (part 1): node 6472:97620
+ *
+ * Component utility / alpha / spacing (part 2): node 6487:347428
+ *   → imported from `tokens-part2-component-utility.css`
+ *
+ * Note: this file uses CSS `@import`. If loaded via a plain `<link>`, keep
+ * `tokens.css` and `tokens-part2-component-utility.css` in resolvable relative paths.
+ */
+
+@import "./tokens-part2-component-utility.css";
+
+/* -------------------------------------------------------------------------- */
+/* Colors/Base/*                                                            */
+/* -------------------------------------------------------------------------- */
+:root {
+  --color-base-white: #ffffff;
+  --color-base-black: #000000;
+  --color-base-transparent: #ffffff00;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Colors/Gray (light mode)/*                                               */
+/* -------------------------------------------------------------------------- */
+:root {
+  --color-gray-light-mode-25: #fdfdfd;
+  --color-gray-light-mode-50: #fafafa;
+  --color-gray-light-mode-100: #f5f5f5;
+  --color-gray-light-mode-200: #e9eaeb;
+  --color-gray-light-mode-300: #d5d7da;
+  --color-gray-light-mode-400: #a4a7ae;
+  --color-gray-light-mode-500: #717680;
+  --color-gray-light-mode-600: #535862;
+  --color-gray-light-mode-700: #414651;
+  --color-gray-light-mode-800: #252b37;
+  --color-gray-light-mode-900: #181d27;
+  --color-gray-light-mode-950: #0a0d12;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Colors/Gray (dark mode)/*                                                */
+/* -------------------------------------------------------------------------- */
+:root {
+  --color-gray-dark-mode-100: #f0f0f1;
+  --color-gray-dark-mode-200: #ececed;
+  --color-gray-dark-mode-300: #cecfd2;
+  --color-gray-dark-mode-400: #94979c;
+  --color-gray-dark-mode-500: #85888e;
+  --color-gray-dark-mode-600: #61656c;
+  --color-gray-dark-mode-700: #373a41;
+  --color-gray-dark-mode-800: #22262f;
+  --color-gray-dark-mode-900: #13161b;
+  --color-gray-dark-mode-950: #0c0e12;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Colors/Blue dark/*                                                       */
+/* -------------------------------------------------------------------------- */
+:root {
+  --color-blue-dark-25: #f5f8ff;
+  --color-blue-dark-50: #eff4ff;
+  --color-blue-dark-100: #d1e0ff;
+  --color-blue-dark-200: #b2ccff;
+  --color-blue-dark-300: #84adff;
+  --color-blue-dark-400: #528bff;
+  --color-blue-dark-500: #2970ff;
+  --color-blue-dark-600: #155eef;
+  --color-blue-dark-700: #004eeb;
+  --color-blue-dark-800: #0040c1;
+  --color-blue-dark-900: #00359e;
+  --color-blue-dark-950: #002266;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Colors/Error/*                                                            */
+/* -------------------------------------------------------------------------- */
+:root {
+  --color-error-25: #fffbfa;
+  --color-error-50: #fef3f2;
+  --color-error-100: #fee4e2;
+  --color-error-200: #fecdca;
+  --color-error-300: #fda29b;
+  --color-error-400: #f97066;
+  --color-error-500: #f04438;
+  --color-error-600: #d92d20;
+  --color-error-700: #b42318;
+  --color-error-800: #912018;
+  --color-error-900: #7a271a;
+  --color-error-950: #55160c;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Colors/Warning/*                                                          */
+/* -------------------------------------------------------------------------- */
+:root {
+  --color-warning-25: #fffcf5;
+  --color-warning-50: #fffaeb;
+  --color-warning-100: #fef0c7;
+  --color-warning-200: #fedf89;
+  --color-warning-300: #fec84b;
+  --color-warning-400: #fdb022;
+  --color-warning-500: #f79009;
+  --color-warning-600: #dc6803;
+  --color-warning-700: #b54708;
+  --color-warning-800: #93370d;
+  --color-warning-900: #7a2e0e;
+  --color-warning-950: #4e1d09;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Colors/Success/*                                                          */
+/* Figma has no Success/200; value is midpoint between 100 and 300.         */
+/* -------------------------------------------------------------------------- */
+:root {
+  --color-success-25: #f6fef9;
+  --color-success-50: #ecfdf3;
+  --color-success-100: #dcfae6;
+  --color-success-200: #a8edc6;
+  --color-success-300: #75e0a7;
+  --color-success-400: #47cd89;
+  --color-success-500: #17b26a;
+  --color-success-600: #079455;
+  --color-success-700: #067647;
+  --color-success-800: #085d3a;
+  --color-success-900: #074d31;
+  --color-success-950: #053321;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Colors/Text/*  (Figma semantic text — node 6472:97620, part 1)              */
+/* -------------------------------------------------------------------------- */
+:root {
+  --color-text-primary-900: #181d27;
+  --color-text-secondary-700: #414651;
+  --color-text-tertiary-600: #535862;
+  --color-text-quaternary-500: #717680;
+
+  --color-text-primary-on-brand: #ffffff;
+  --color-text-secondary-hover: #252b37;
+  --color-text-secondary-on-brand: var(--color-blue-dark-200);
+  --color-text-tertiary-hover: #414651;
+  --color-text-tertiary-on-brand: var(--color-blue-dark-200);
+  --color-text-quaternary-on-brand: var(--color-blue-dark-300);
+
+  --color-text-white: #ffffff;
+  --color-text-disabled: #717680;
+  --color-text-placeholder: #717680;
+  --color-text-placeholder-subtle: #d5d7da;
+
+  --color-text-brand-primary-900: var(--color-blue-dark-900);
+  --color-text-brand-secondary-700: var(--color-blue-dark-700);
+  --color-text-brand-secondary-hover: var(--color-blue-dark-800);
+  --color-text-brand-tertiary-600: var(--color-blue-dark-600);
+  --color-text-brand-tertiary-alt: var(--color-blue-dark-600);
+
+  --color-text-error-primary-600: #d92d20;
+  --color-text-warning-primary-600: #dc6803;
+  --color-text-success-primary-600: #079455;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Colors/Background/*                                                       */
+/* -------------------------------------------------------------------------- */
+:root {
+  --color-bg-primary: #ffffff;
+  --color-bg-primary-hover: #fafafa;
+  --color-bg-error-primary: var(--color-error-50);
+  --color-bg-error-solid: var(--color-error-600);
+  --color-bg-error-solid-hover: var(--color-error-700);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Colors/Border/*                                                          */
+/* -------------------------------------------------------------------------- */
+:root {
+  --color-border-primary: #d5d7da;
+  --color-border-secondary: #e9eaeb;
+  --color-border-disabled-subtle: #e9eaeb;
+  --color-border-error-subtle: var(--color-error-300);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Buttons/Button destructive semantic helpers (node 6218:85578)             */
+/* -------------------------------------------------------------------------- */
+:root {
+  --color-text-error-primary-hover: var(--color-error-700);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Product brand (blue) — all brand surfaces use Blue dark scale.              */
+/* -------------------------------------------------------------------------- */
+:root {
+  --color-brand-ui-500: var(--color-blue-dark-500);
+  --color-brand-ui-600: var(--color-blue-dark-600);
+  --color-focus-ring: var(--color-blue-dark-500);
+  --color-effects-focus-ring: var(--color-utility-brand-500);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Typography — Font family/*                                                */
+/* -------------------------------------------------------------------------- */
+:root {
+  --font-family-body: "Inter", system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-family-display: "Inter", system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-family-mono: ui-monospace, Consolas, monospace;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Typography — Font weight/* (maps to CSS numeric weights)                   */
+/* -------------------------------------------------------------------------- */
+:root {
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Typography — Font size/* & Line height/* (px, matches Figma)               */
+/* -------------------------------------------------------------------------- */
+:root {
+  --font-size-display-2xl: 72px;
+  --line-height-display-2xl: 90px;
+
+  --font-size-display-xl: 60px;
+  --line-height-display-xl: 72px;
+
+  --font-size-display-lg: 48px;
+  --line-height-display-lg: 60px;
+
+  --font-size-display-md: 36px;
+  --line-height-display-md: 44px;
+
+  --font-size-display-sm: 30px;
+  --line-height-display-sm: 38px;
+
+  --font-size-display-xs: 24px;
+  --line-height-display-xs: 32px;
+
+  --font-size-text-xl: 20px;
+  --line-height-text-xl: 30px;
+
+  --font-size-text-lg: 18px;
+  --line-height-text-lg: 28px;
+
+  --font-size-text-md: 16px;
+  --line-height-text-md: 24px;
+
+  --font-size-text-sm: 14px;
+  --line-height-text-sm: 20px;
+
+  --font-size-text-xs: 12px;
+  --line-height-text-xs: 18px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Typography — Letter spacing (Figma compound styles: -2 or 0)              */
+/* -------------------------------------------------------------------------- */
+:root {
+  /* Display 2xl → md use letterSpacing -2 in Figma (≈ -2% → -0.02em) */
+  --letter-spacing-display-tight: -0.02em;
+  --letter-spacing-none: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Derived surfaces (not single Figma variables — built from Figma colors)  */
+/* -------------------------------------------------------------------------- */
+:root {
+  --color-blue-dark-muted: color-mix(in srgb, var(--color-blue-dark-600) 12%, transparent);
+  --color-blue-dark-border: color-mix(in srgb, var(--color-blue-dark-600) 45%, transparent);
+  --color-social-bg-muted: color-mix(in srgb, var(--color-gray-light-mode-100) 85%, transparent);
+
+  --shadow-default: rgba(15, 23, 42, 0.08) 0 10px 15px -3px, rgba(15, 23, 42, 0.04) 0 4px 6px -2px;
+
+  /*
+   * Elevation shadows — Figma “Shadows” (1532:352912) / Effect styles
+   */
+  --shadow-xs: 0 1px 2px 0 rgba(10, 13, 18, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(10, 13, 18, 0.1), 0 1px 2px -1px rgba(10, 13, 18, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(10, 13, 18, 0.1), 0 2px 4px -2px rgba(10, 13, 18, 0.06);
+  --shadow-lg:
+    0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03),
+    0 2px 2px -1px rgba(10, 13, 18, 0.04);
+  --shadow-xl:
+    0 20px 24px -4px rgba(10, 13, 18, 0.08), 0 8px 8px -4px rgba(10, 13, 18, 0.03),
+    0 3px 3px -1.5px rgba(10, 13, 18, 0.04);
+  --shadow-2xl: 0 24px 48px -12px rgba(10, 13, 18, 0.18), 0 4px 4px -2px rgba(10, 13, 18, 0.04);
+  --shadow-3xl: 0 32px 64px -12px rgba(10, 13, 18, 0.14), 0 5px 5px -2.5px rgba(10, 13, 18, 0.04);
+
+  /* Dropdowns / menus — alias of shadow-lg (Figma node 3281:383083) */
+  --shadow-dropdown-panel: var(--shadow-lg);
+
+  /* Buttons/Button — Figma node 3287:427074 (shadow-xs + skeuomorphic inner) */
+  --shadow-button-xs: var(--shadow-xs);
+  /* Toggles — thumb shadow-sm (Figma node 1102:4208) */
+  --shadow-toggle-thumb: var(--shadow-sm);
+  --shadow-button-skeuomorphic-inner:
+    inset 0 0 0 1px rgba(10, 13, 18, 0.18), inset 0 -2px 0 0 rgba(10, 13, 18, 0.05);
+
+  /*
+   * Focus ring as stacked box-shadow (white gap + ring color).
+   * Both `--color-focus-ring` and `--color-effects-focus-ring` resolve to blue (brand).
+   */
+  --shadow-focus-ring: 0 0 0 2px var(--color-bg-primary), 0 0 0 4px var(--color-focus-ring);
+  --shadow-effects-focus-ring:
+    0 0 0 2px var(--color-bg-primary), 0 0 0 4px var(--color-effects-focus-ring);
+  --shadow-effects-focus-ring-error:
+    0 0 0 2px var(--color-bg-primary), 0 0 0 4px var(--color-error-500);
+
+  /* Figma “Focus rings” (5424:398991) — combined stacks */
+  --shadow-effects-focus-ring-xs:
+    0 1px 2px 0 rgba(10, 13, 18, 0.05), 0 0 0 2px var(--color-bg-primary),
+    0 0 0 4px var(--color-effects-focus-ring);
+  --shadow-effects-focus-ring-sm:
+    0 1px 3px 0 rgba(10, 13, 18, 0.1), 0 1px 2px -1px rgba(10, 13, 18, 0.1),
+    0 0 0 2px var(--color-bg-primary), 0 0 0 4px var(--color-effects-focus-ring);
+  --shadow-effects-focus-ring-error-xs:
+    0 1px 2px 0 rgba(10, 13, 18, 0.05), 0 0 0 2px var(--color-bg-primary),
+    0 0 0 4px var(--color-error-500);
+  --shadow-effects-focus-ring-xs-skeuomorphic:
+    0 1px 2px 0 rgba(10, 13, 18, 0.05), 0 0 0 2px var(--color-bg-primary),
+    0 0 0 4px var(--color-effects-focus-ring), var(--shadow-button-skeuomorphic-inner);
+  --shadow-effects-focus-ring-error-xs-skeuomorphic:
+    0 1px 2px 0 rgba(10, 13, 18, 0.05), 0 0 0 2px var(--color-bg-primary),
+    0 0 0 4px var(--color-error-500), var(--shadow-button-skeuomorphic-inner);
+
+  /*
+   * Backdrop blurs — Figma “Backdrop blurs” (1532:352913); use as blur(var(--backdrop-blur-*))
+   */
+  --backdrop-blur-sm: 4px;
+  --backdrop-blur-md: 8px;
+  --backdrop-blur-lg: 12px;
+  --backdrop-blur-xl: 20px;
+  --backdrop-tint-light: rgba(255, 255, 255, 0.6);
+  --backdrop-tint-dark: rgba(0, 0, 0, 0.6);
+}
+
+/* Semantic accents for status (default: solid 600 on light canvas) */
+:root {
+  --color-error-solid: var(--color-error-600);
+  --color-error-solid-hover: var(--color-error-700);
+  --color-error-muted: color-mix(in srgb, var(--color-error-600) 12%, transparent);
+  --color-error-on-solid: var(--color-base-white);
+
+  --color-warning-solid: var(--color-warning-600);
+  --color-warning-solid-hover: var(--color-warning-700);
+  --color-warning-muted: color-mix(in srgb, var(--color-warning-600) 12%, transparent);
+  --color-warning-on-solid: var(--color-gray-light-mode-900);
+
+  --color-success-solid: var(--color-success-600);
+  --color-success-solid-hover: var(--color-success-700);
+  --color-success-muted: color-mix(in srgb, var(--color-success-600) 12%, transparent);
+  --color-success-on-solid: var(--color-base-white);
+}
+
+/* App-level aliases (map Figma semantic + gray primitives for components) */
+:root {
+  --color-text-default: var(--color-text-primary-900);
+  --color-text-heading: var(--color-text-primary-900);
+  --color-text-muted: var(--color-text-tertiary-600);
+  --color-surface-canvas: var(--color-bg-primary);
+  --color-surface-code: var(--color-gray-light-mode-100);
+  --color-surface-muted: var(--color-gray-light-mode-100);
+  --color-border-default: var(--color-border-secondary);
+  --color-interactive-accent: var(--color-blue-dark-600);
+  --color-interactive-accent-muted: var(--color-blue-dark-muted);
+  --color-interactive-accent-border: var(--color-blue-dark-border);
+}
+
+/* -------------------------------------------------------------------------- */
+/* prefers-color-scheme: dark — same Figma names, values from Gray (dark)   */
+/* -------------------------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary-900: var(--color-gray-dark-mode-100);
+    --color-text-tertiary-600: var(--color-gray-dark-mode-500);
+
+    --color-bg-primary: var(--color-gray-dark-mode-950);
+    --color-bg-primary-hover: var(--color-gray-dark-mode-800);
+    --color-border-primary: var(--color-gray-dark-mode-700);
+    --color-border-secondary: var(--color-gray-dark-mode-800);
+
+    --color-focus-ring: var(--color-blue-dark-400);
+
+    --color-text-default: var(--color-gray-dark-mode-400);
+    --color-text-heading: var(--color-gray-dark-mode-100);
+    --color-text-muted: var(--color-gray-dark-mode-500);
+
+    --color-surface-canvas: var(--color-gray-dark-mode-950);
+    --color-surface-code: var(--color-gray-dark-mode-900);
+    --color-surface-muted: var(--color-gray-dark-mode-900);
+
+    --color-interactive-accent: var(--color-blue-dark-400);
+    --color-blue-dark-muted: color-mix(in srgb, var(--color-blue-dark-400) 18%, transparent);
+    --color-blue-dark-border: color-mix(in srgb, var(--color-blue-dark-400) 45%, transparent);
+    --color-interactive-accent-muted: var(--color-blue-dark-muted);
+    --color-interactive-accent-border: var(--color-blue-dark-border);
+
+    --color-social-bg-muted: color-mix(in srgb, var(--color-gray-dark-mode-800) 65%, transparent);
+
+    --shadow-default: rgba(0, 0, 0, 0.45) 0 10px 15px -3px, rgba(0, 0, 0, 0.3) 0 4px 6px -2px;
+
+    --shadow-dropdown-panel:
+      0 12px 16px -4px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.25),
+      0 2px 2px -1px rgba(0, 0, 0, 0.2);
+
+    --color-error-solid: var(--color-error-400);
+    --color-error-solid-hover: var(--color-error-300);
+    --color-error-muted: color-mix(in srgb, var(--color-error-400) 18%, transparent);
+    --color-error-on-solid: var(--color-gray-dark-mode-950);
+
+    --color-warning-solid: var(--color-warning-400);
+    --color-warning-solid-hover: var(--color-warning-300);
+    --color-warning-muted: color-mix(in srgb, var(--color-warning-400) 18%, transparent);
+    --color-warning-on-solid: var(--color-gray-dark-mode-950);
+
+    --color-success-solid: var(--color-success-400);
+    --color-success-solid-hover: var(--color-success-300);
+    --color-success-muted: color-mix(in srgb, var(--color-success-400) 18%, transparent);
+    --color-success-on-solid: var(--color-gray-dark-mode-950);
+
+    --color-border-error-subtle: var(--color-error-500);
+    --color-bg-error-primary: color-mix(in srgb, var(--color-error-600) 14%, transparent);
+  }
+}

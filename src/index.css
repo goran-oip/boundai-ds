@@ -1,0 +1,71 @@
+@import "./styles/tokens.css";
+
+:root {
+  color-scheme: light;
+  background-color: var(--color-surface-canvas);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  padding: var(--spacing-4xl);
+  box-sizing: border-box;
+  background: var(--color-surface-canvas);
+  color: var(--color-text-default);
+  font-family: var(--font-family-body);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.demo {
+  max-width: var(--layout-width-2xl);
+  margin: 0 auto;
+  display: grid;
+  gap: var(--spacing-3xl);
+}
+
+.hero h1 {
+  margin: 0;
+  color: var(--color-text-heading);
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-display-xs);
+  line-height: var(--line-height-display-xs);
+}
+
+.eyebrow {
+  margin: 0 0 var(--spacing-sm);
+  color: var(--color-interactive-accent);
+  font-weight: var(--font-weight-semibold);
+}
+
+.subtitle {
+  margin: var(--spacing-md) 0 0;
+  color: var(--color-text-muted);
+  max-width: var(--layout-paragraph-max-width);
+}
+
+.card {
+  padding: var(--spacing-2xl);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background: var(--color-bg-primary);
+  box-shadow: var(--shadow-default);
+}
+
+.card h2 {
+  margin: 0 0 var(--spacing-lg);
+  color: var(--color-text-heading);
+  font-size: var(--font-size-text-lg);
+  line-height: var(--line-height-text-lg);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-lg);
+}

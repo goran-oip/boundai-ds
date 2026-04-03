@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BoundAI Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/index.css" />
+    <script type="module" src="/src/dev-playground.ts"></script>
+  </head>
+  <body>
+    <main class="demo">
+      <header class="hero">
+        <p class="eyebrow">BoundAI Design System</p>
+        <h1>Local Component Playground</h1>
+        <p class="subtitle">
+          This Vite page is a quick manual preview. For full documentation use Storybook.
+        </p>
+      </header>
+
+      <section class="card">
+        <h2>Buttons</h2>
+        <div class="row">
+          <bd-button variant="primary">Primary action</bd-button>
+          <bd-button variant="secondary">Secondary action</bd-button>
+          <bd-button intent="destructive" variant="secondary">Destructive</bd-button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Status</h2>
+        <div class="row">
+          <bd-spinner size="sm"></bd-spinner>
+          <bd-spinner size="md"></bd-spinner>
+          <bd-badge variant="pill" color="brand">Ready</bd-badge>
+          <bd-badge variant="pill" color="warning">In progress</bd-badge>
+          <bd-badge variant="pill" color="error">Blocked</bd-badge>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Utility controls</h2>
+        <div class="row">
+          <bd-close-button label="Close panel"></bd-close-button>
+          <bd-utility-button
+            data-lucide-demo
+            size="sm"
+            hierarchy="secondary"
+            label="Settings"
+          ></bd-utility-button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

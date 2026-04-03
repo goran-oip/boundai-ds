@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run build
+      - run: npm run docs
+      - run: |
+          npm run preview-docs > /tmp/storybook-static.log 2>&1 &
+          PREVIEW_PID=$!
+          trap "kill $PREVIEW_PID" EXIT
+          for i in {1..30}; do
+            if curl -sf http://127.0.0.1:6007 >/dev/null; then
+              break
+            fi
+            sleep 1
+          done
+          npm run test:storybook

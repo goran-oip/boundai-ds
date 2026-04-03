@@ -1,0 +1,102 @@
+{
+  "name": "@boundai/ds",
+  "version": "0.1.0",
+  "description": "BoundAI Design System — Lit Web Components + tokenized CSS",
+  "keywords": [
+    "boundai",
+    "design-system",
+    "web-components",
+    "lit",
+    "components"
+  ],
+  "homepage": "https://github.com/goran-oip/boundai-ds#readme",
+  "bugs": {
+    "url": "https://github.com/goran-oip/boundai-ds/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/goran-oip/boundai-ds.git"
+  },
+  "type": "module",
+  "main": "./dist/boundai-ds.js",
+  "module": "./dist/boundai-ds.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/boundai-ds.js"
+    },
+    "./tokens.css": "./src/styles/tokens.css",
+    "./tokens": "./src/styles/tokens.css"
+  },
+  "files": [
+    "dist",
+    "src/styles",
+    "custom-elements.json"
+  ],
+  "sideEffects": [
+    "**/*.css",
+    "**/bd-*.js"
+  ],
+  "customElements": "custom-elements.json",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run build:lib && npm run build:types && npm run build:cem",
+    "build:lib": "vite build",
+    "build:types": "tsc --project tsconfig.build.json",
+    "build:cem": "cem analyze --litelement --outdir . --globs \"src/components/**/*.ts\"",
+    "storybook": "storybook dev -p 6006",
+    "docs": "storybook build",
+    "preview-docs": "npx --yes serve storybook-static -l 6007",
+    "lint": "biome check src",
+    "lint:fix": "biome check --write src",
+    "format": "biome format --write src",
+    "typecheck": "tsc --noEmit",
+    "test:storybook": "test-storybook --url http://127.0.0.1:6007 --includeTags interaction",
+    "test:vitest": "vitest run --project=storybook",
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build",
+    "generate:social-icons": "node scripts/generate-social-icon-data.mjs",
+    "generate:country-icons": "node scripts/generate-country-icon-data.mjs",
+    "generate:payment-icons": "node scripts/generate-payment-icon-data.mjs"
+  },
+  "dependencies": {
+    "lit": "^3.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.10",
+    "@custom-elements-manifest/analyzer": "^0.11.0",
+    "@iconify-json/arcticons": "^1.2.51",
+    "@iconify-json/cib": "^1.2.3",
+    "@iconify-json/circle-flags": "^1.2.10",
+    "@iconify-json/fa6-brands": "^1.2.6",
+    "@iconify-json/logos": "^1.2.11",
+    "@iconify-json/lucide": "^1.2.101",
+    "@iconify-json/mdi": "^1.2.3",
+    "@iconify-json/simple-icons": "^1.2.76",
+    "@storybook/addon-a11y": "^10.3.4",
+    "@storybook/addon-docs": "^10.3.4",
+    "@storybook/addon-vitest": "^10.3.4",
+    "@storybook/test-runner": "^0.24.3",
+    "@storybook/web-components-vite": "^10.3.4",
+    "@vitest/browser-playwright": "^4.1.2",
+    "@vitest/coverage-v8": "^4.1.2",
+    "lucide": "^1.7.0",
+    "payment-icons": "^1.2.1",
+    "playwright": "^1.59.1",
+    "simple-icons": "^16.14.0",
+    "storybook": "^10.3.4",
+    "typescript": "~5.9.3",
+    "vite": "^8.0.1",
+    "vitest": "^4.1.2"
+  },
+  "peerDependencies": {
+    "lit": "^3.0.0",
+    "lucide": "^1.0.0"
+  },
+  "peerDependenciesMeta": {
+    "lucide": {
+      "optional": true
+    }
+  }
+}
